@@ -1,43 +1,25 @@
 
 import { StyleSheet, Text, View, Image, Pressable, Span } from 'react-native';
 import React from 'react';
+//Navigation
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+//Screens import
+import ColorScreen from '../Lab05/ColorScreen';
+import checkOutScreen from './checkOutScreen';
+
+const Stack = createNativeStackNavigator();
+
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Image source={require('./assets/vs_red.png')} style={{ width: '265px', height: '324px', objectFit: 'contain' }} />
-      <Text style={{ fontWeight: 700, fontSize: '1rem' }}>Điện Thoại Vsmart Joy 3 - Hàng chính hãng</Text>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName='Home'>
+        <Stack.Screen name='checkOutScreen' component={checkOutScreen}></Stack.Screen>
+        <Stack.Screen name='ColorScreen' component={ColorScreen}></Stack.Screen>
+      </Stack.Navigator>
+    </NavigationContainer>
 
-      <View style={{ justifyContent: 'space-between', alignItems: 'center', display: 'flex', flexDirection: 'row', width: '90%', gap: 10 }}>
-        <View style={{ justifyContent: 'space-around', display: 'flex', flexDirection: 'row' }}>
-          <Image source={require('./assets/Star 2.png')} style={{ width: '25px', height: '25px', objectFit: 'contain' }} />
-          <Image source={require('./assets/Star 2.png')} style={{ width: '25px', height: '25px', objectFit: 'contain' }} />
-          <Image source={require('./assets/Star 2.png')} style={{ width: '25px', height: '25px', objectFit: 'contain' }} />
-          <Image source={require('./assets/Star 2.png')} style={{ width: '25px', height: '25px', objectFit: 'contain' }} />
-          <Image source={require('./assets/Star 2.png')} style={{ width: '25px', height: '25px', objectFit: 'contain' }} />
-        </View>
-        <Text style={{ fontWeight: 500, fontSize: '0.8rem' }} >(Xem 828 đánh giá)</Text>
-      </View>
-      <View style={{ justifyContent: 'space-between', alignItems: 'center', display: 'flex', flexDirection: 'row', width: '90%', }}>
-        <Text style={{ fontWeight: 700, fontSize: '1.2rem' }} >1.790.000đ</Text>
-        <Text style={{ fontWeight: 500, fontSize: '1rem', textDecoration: 'line-through' }} >1.790.000đ</Text>
-      </View>
-      <View style={{ justifyContent: 'space-between', alignItems: 'center', display: 'flex', flexDirection: 'row', width: '90%', }}>
-        <Text style={{ fontWeight: 700, color: 'red', fontSize: '1rem' }} >Ở ĐÂU RẺ HƠN HOÀN TIỀN</Text>
-        <Image source={require('./assets/Group 1.png')} style={{ width: '20px', height: '20px', objectFit: 'contain' }} />
-      </View>
-      <View style={{ justifyContent: 'space-between', alignItems: 'center', display: 'flex', flexDirection: 'row', width: '90%', }} >
-        <Pressable style={styles.btnn}>
-          <Text style={{ fontWeight: 600, fontSize: '1rem', textAlign: 'center' }}>4 - Màu / Chọn Màu             &gt; </Text>
-
-        </Pressable>
-      </View>
-      <View style={{ display: 'flex', flexDirection: 'column', width: '90%', }} >
-        <Pressable style={{ backgroundColor: 'red', width: '100%', borderRadius: 5, }}>
-          <Text style={{ fontWeight: 700, fontSize: '1.8rem', textAlign: 'center', color: 'white' }}>CHỌN MUA</Text>
-
-        </Pressable>
-      </View>
-    </View >
   );
 }
 
@@ -49,22 +31,46 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 1,
     backgroundColor: '#fff',
-    gap: 10,
+    gap: '2rem',
     padding: '1rem',
   },
   imgsss: {
     height: '270px'
-
   },
-  btnn: {
+  btnn1: {
     justifyContent: 'center',
-    border: '5px solid gray ',
-    width: '100%',
+    backgroundColor: 'red',
+    width: '100px',
+    height: '100px',
     padding: 10,
     borderRadius: 5,
 
   },
-  btnnhover: {
+  btnn2: {
+    justifyContent: 'center',
+    backgroundColor: 'black',
+    width: '100px',
+    height: '100px',
+    padding: 10,
+    borderRadius: 5,
+
+  },
+  btnn3: {
+    justifyContent: 'center',
+    backgroundColor: 'lightpink',
+    width: '100px',
+    height: '100px',
+    padding: 10,
+    borderRadius: 5,
+
+  },
+  btnn4: {
+    justifyContent: 'center',
+    backgroundColor: 'lightblue',
+    width: '100px',
+    height: '100px',
+    padding: 10,
+    borderRadius: 5,
 
   },
   spn: {
