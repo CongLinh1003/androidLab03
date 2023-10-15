@@ -2,9 +2,10 @@
 import { StyleSheet, Text, View, Image, Pressable, Span } from 'react-native';
 import React, { useState, useEffect } from 'react';
 
-export default function checkOutScreen(route, navigation) {
-
+export default function checkOutScreen({ route, navigation }) {
+  console.log(route)
   const [image, setImage] = useState();
+
   useEffect(() => {
     setImage(route.params);
   }, [route.params])
@@ -33,8 +34,11 @@ export default function checkOutScreen(route, navigation) {
         <Image source={require('./assets/Group 1.png')} style={{ width: '20px', height: '20px', objectFit: 'contain' }} />
       </View>
       <View style={{ justifyContent: 'space-between', alignItems: 'center', display: 'flex', flexDirection: 'row', width: '90%', }} >
-        <Pressable style={styles.btnn}>
-          <Text style={{ fontWeight: 600, fontSize: '1rem', textAlign: 'center' }}>4 - Màu / Chọn Màu             &gt; </Text>
+        <Pressable style={styles.btnn} onPress={() => {
+          console.log('it pressed'),
+            navigation.navigate('ColorScreen');
+        }}>
+          <Text style={{ fontWeight: 600, fontSize: '1rem', textAlign: 'center' }}>Chọn màu</Text>
 
         </Pressable>
       </View>
@@ -51,7 +55,7 @@ export default function checkOutScreen(route, navigation) {
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
-    justifyContent: 'flex-end',
+    justifyContent: 'flex-start',
     flexDirection: 'column',
     alignItems: 'center',
     flex: 1,
